@@ -1,0 +1,21 @@
+<h1>Welcome to Countdown!</h1>
+
+<p>Here is your grid of letter:</p>
+
+<div class="grid">
+
+  <% @grid.each do |letter| %>
+  <div class="letter"><strong><%= letter %></strong></div>
+  <% end %>
+</div>
+<br>
+<p>What is your proposition?</p>
+<div class="attempt">
+  <form action="score" method="POST">
+    <input type="text" placeholder="enter your world here" name="attempt">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :grid, @grid %>
+    <%= hidden_field_tag :start_time, @start_time %>
+    <input type="submit">
+  </form>
+</div>
